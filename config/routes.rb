@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  root to:'application#index'
+  
+ root to: 'items#index'
+ resources :items do
+  
+
 end
