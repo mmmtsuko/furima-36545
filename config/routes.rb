@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  ro
+  root to:'application#index'
 end
