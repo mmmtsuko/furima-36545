@@ -1,24 +1,55 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+##usersテーブル
 
-* Ruby version
+|Column           |Type       | Options       |
+|-----------------|-----------|---------------|
+|nickname         |string     |null:false     |
+|email            |sering     |null:false     |
+|password         |string     |null:false     |
+|last_name        |string     |null:false     |
+|first_name       |string     |null:false     |
+|last_name_kana   |string     |null:false     |
+|first_name_kana  |string     |null:false     |
+|birthbay         | date      |null:false     |
 
-* System dependencies
+Association
+ .has_many orders
+ .has_many items
+ 
+ 
 
-* Configuration
+##itemsテーブル
 
-* Database creation
+|Column           |Type       | Options       |
+|-----------------|-----------|---------------|
+|items_name       |string     |null:false     |
+|text             |text       |null:false     |
+|category_id      |integer    |null:false     |
+|price            |integer    |null:false     |
+|user             |referenc   |null:false     |
 
-* Database initialization
 
-* How to run the test suite
+Association
+ .belongs_to useres
+ .belongs_to orders
+ 
+ 
+ 
+##privatesテーブル
+|Column           |Type       | Options       |
+|-----------------|-----------|---------------|
+|card_number      |string     |null:false     |
+|card_month       |text       |null:false     |
+|card_year        |integer    |null:false     |
+|cared_cvc        |integer    |null:false     |
+|card_month       |referenc   |null:false     |
+|city_name        |string     |null:false     |
+|building_name    |string     |null:false     |
+|order            |string     |null:false     |
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+Association
+ .belongs_to orders 
 
-* ...
+
