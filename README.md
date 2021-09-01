@@ -36,21 +36,21 @@ Association
 
 
 Association
- .belongs_to usere
- .belongs_to order
+ .belongs_to  user
+ .has_one     order
  
  
  
 ##privatesテーブル
-|Column           |Type       | Options                     |
-|-----------------|-----------|-----------------------------|
-|postal_code      |string     |null:false                   |
-|prefecture_id    |integer    |null:false                   |  
-|city_name        |string     |null:false                   |
-|house-number_id  |string     |null:false                   |
-|building_name    |string     |                             |
-|phone_number     |string     |null:false                   |
-|order            |string     |null:false,foreign_key: true |
+|Column           |Type         | Options                     |
+|-----------------|-------------|-----------------------------|
+|postal_code      |string       |null:false                   |
+|prefecture_id    |integer      |null:false                   |  
+|city_name        |string       |null:false                   |
+|house_number_id  |string       |null:false                   |
+|building_name    |string       |                             |
+|phone_number     |string       |null:false                   |
+|order            |references   |null:false,foreign_key: true |
 
 
 Association
@@ -59,12 +59,12 @@ Association
 
 ##ordersテーブル
 
-|Column           |Type       | Options                      |
-|-----------------|-----------|------------------------------|
-|user             |referenc   |null:false ,foreign_key:true  |
-|item             |referenc   |null:false ,foreign_key:true  |
+|Column           |Type        | Options                      |
+|-----------------|------------|------------------------------|
+|user             |references  |null:false ,foreign_key:true  |
+|item             |references  |null:false ,foreign_key:true  |
 
 Association
-.belongs_to user
+.belongs_to  user
 .belongs_to  item
-.belongs_to  private
+.has_one     private
