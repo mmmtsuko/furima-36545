@@ -2,16 +2,16 @@
 
 ##usersテーブル
 
-|Column           |Type       | Options       |
-|-----------------|-----------|---------------|
-|nickname         |string     |null:false     |
-|email            |sering     |null:false     |
-|password         |string     |null:false     |
-|last_name        |string     |null:false     |
-|first_name       |string     |null:false     |
-|last_name_kana   |string     |null:false     |
-|first_name_kana  |string     |null:false     |
-|birthbay         | date      |null:false     |
+|Column             |Type       | Options       |
+|-------------------|-----------|---------------|
+|nickname           |string     |null:false     |
+|email              |sering     |null:false     |
+|encrypted_password |string     |null:false     |
+|last_name          |string     |null:false     |
+|first_name         |string     |null:false     |
+|last_name_kana     |string     |null:false     |
+|first_name_kana    |string     |null:false     |
+|birthbay           | date      |null:false     |
 
 Association
  .has_many orders
