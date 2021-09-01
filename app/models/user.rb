@@ -5,16 +5,14 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
 
- validates :nickname, precedence: true
- validates :email, precedence:true, 
- validates :encrypted_passwprd, precedence: true
- validates :last_name, precedence: true
- validates :first_name, precedence: true
- validates :last_name_kana, precedence: true
- validates :first_name_kana, precedence: true
- validates :birthbay, precedence: true
+ validates :nickname, presence: true
+ validates :email, presence: true
+ validates :encrypted_password, presence: true
+ validates :last_name, presence: true
+ validates :first_name, presence: true
+ validates :last_name_kana, presence: true
+ validates :first_name_kana, presence: true
+ validates :birthbay, presence: true
 
- has_many orders
- has_many items
  
 end
