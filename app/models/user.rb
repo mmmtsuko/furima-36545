@@ -13,6 +13,6 @@ class User < ApplicationRecord
  validates :last_name_kana, presence: true
  validates :first_name_kana, presence: true
  validates :birthbay, presence: true
-
+ 
  
 end
