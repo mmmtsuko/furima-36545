@@ -6,7 +6,11 @@ def  edit
 end  
 
 def update
-  current_item.update(item_params)
+  if current_item.update(item_params)
+    redirect_to root_path
+  else
+    render :edit
+  end
 end
 
 private
@@ -14,7 +18,7 @@ private
 def user_params
   params.require(:item).permit(:item_name, :text)
 end
-end
+
 
 
 
