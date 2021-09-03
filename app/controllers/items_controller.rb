@@ -5,6 +5,10 @@ end
 def  edit
 end  
 
+def create
+end
+
+
 def update
   if current_item.update(item_params)
     redirect_to root_path
