@@ -2,15 +2,13 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:edit]
 
 def index
- 
 end
 
-#def  edit
-#end  
+def new
+end
 
-#def create
-  
-#end
+def create
+end
 
 #def show
 #end
@@ -23,7 +21,7 @@ end
   #end
 #end
 
-#private
+private
 
 #def user_params
  # params.require(:user).permit(:name, :email)
@@ -35,9 +33,7 @@ end
 #  end
 #end
 
-def set_tweet
-  @item = Item.find(params[:id])
-end
+
 
 end
 
