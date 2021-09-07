@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:edit]
-
+  before_action :set_item, only: [:edit, :show]
+  before_action :authenticate_user!, only: [:edit, :new]
 def index
 end
 
@@ -10,8 +10,8 @@ end
 def create
 end
 
-#def show
-#end
+def show
+end
 
 #def update
  # if current_user.update(user_params)
