@@ -1,4 +1,4 @@
-﻿class Province < ActiveHash::Base
+﻿class Prefectre < ActiveHash::Base
   self.date = [
     { id: 1, name: '---' },
     { id: 2, name: '北海道' },
@@ -49,4 +49,7 @@
     { id: 47, name: '鹿児島県' },
     { id: 48, name: '沖縄県' }
   ]
+
+  include ActiveHash::Associations
+  has_many :items
 end 

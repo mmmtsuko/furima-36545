@@ -1,4 +1,4 @@
-﻿class Item_status < ActiveHash::Base
+﻿class Sales_status < ActiveHash::Base
   self.date = [
     { id: 1, name: '---' },
     { id: 2, name: '新品・未使用' },
@@ -8,4 +8,7 @@
     { id: 6, name: '傷や汚れあり' },
     { id: 7, name: '全体的に状態が悪い' }
   ]
+  
+  include ActiveHash::Associations
+  has_many :items
 end 
