@@ -1,14 +1,27 @@
 class Item < ApplicationRecord
-  belongs_to  :user
-  has_one_to  :order
- 
- extend ActiveHash::Associations::ActiveRecordExtensions
-   belongs_to :Category
-   belongs_to :sales_status
-   belongs_to :shipping_fee
-   belongs_to :prefectre
-   belongs_to :date_of_shipment
- 
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  
+  belongs_to :category
+  belongs_to :sales_status
+  belongs_to :shipping_fee
+  belongs_to :prefecture
+  belongs_to :date_of_shipment
+  belongs_to :user
+  has_one_attached :image
+
+  with_options presence: true do
+    validates :name, length: { maximum: 40 }
+    validates :detail, length: { maximum: 1000 }
+    validates :price, format: { with: /\A[0-9]+\z/ }, inclusion: { in: 300..9_999_999 }
+    validates :image
   end
 
+  with_options numericality: { other_than: 1, message: "can't be blank" } do
+    validates :category_id
+    validates :sales_status_id
+    validates :shipping_fee_id
+    validates :prefecture_id
+    validates :date_of_shipment
+  end
 
+end
