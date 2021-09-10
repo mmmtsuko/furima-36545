@@ -4,8 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-     #has_many :orders
-     #has_many :items
+  has_many :orders
+  has_many :items
 
  
  with_options presence: true do
@@ -19,8 +19,3 @@ class User < ApplicationRecord
   end
 end
 
-#お名前(全角)は、名字と名前がそれぞれ必須であること。
-#お名前(全角)は、全角（漢字・ひらがな・カタカナ）での入力が必須であること。
-#お名前カナ(全角)は、名字と名前がそれぞれ必須であること。
-#お名前カナ(全角)は、全角（カタカナ）での入力が必須であること。
-#生年月日が必須であること。
