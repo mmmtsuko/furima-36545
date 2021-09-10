@@ -26,7 +26,7 @@ RSpec.describe Item, type: :model do
       
     
       it 'category_idが空では出品できない' do
-        @item.category_id = ''
+        @item.category_id = １
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
