@@ -1,9 +1,9 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new,:create]
 
- #def index
- # @item = Item.order("created_at DESC")
- #end
+  def index 
+   @item = Item.order("created_at DESC")
+  end
 
  def new
    @item = Item.new
@@ -26,7 +26,6 @@ class ItemsController < ApplicationController
   .merge(user_id: current_user.id)
 end
 
- 
 
   
 

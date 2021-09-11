@@ -27,7 +27,7 @@ Association
 |text               |text         |null:false                    |
 |category_id        |integer      |null:false                    |カテゴリー
 |sales_status_id    |integer      |null:false                    |商品の状態
-|shipping_fee_id    |integer      |null:false                    |送料
+|shipping_fee_id    |integer      |null:false                    |発送料の負担
 |prefecture_id      |integer      |null:false                    |県
 |date_of_shipment_id|integer      |null:false                    |出荷日
 |price              |integer      |null:false                    |ねだん
