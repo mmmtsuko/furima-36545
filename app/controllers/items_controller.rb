@@ -38,6 +38,10 @@ class ItemsController < ApplicationController
   end
 end
 
+def destroy
+  item = Item.find(paerams[:id])
+  item.destroy
+end
 
 
  private
