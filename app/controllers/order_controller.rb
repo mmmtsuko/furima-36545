@@ -1,7 +1,9 @@
-#class OrderController < ApplicationController
+class OrderController < ApplicationController
 
- # def new
-  #end**購入機能の際に作成するためコメントアウト
+  def new
+  end
   
+  def create
+  end
 
-#end
+end
