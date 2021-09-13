@@ -38,19 +38,21 @@ class ItemsController < ApplicationController
   end
 end
 
-def destroy
-  if user_signed_in? && current_user.id == @item.user_id
-  @item.destroy
-  redirect_to root_path
-  end
-end
 
 
- private
+ def destroy
+    @item.destroy
+    redirect_to root_path
+ end
 
-def set_item
-  @item = Item.find(params[:id])
-end
+ 
+private
+
+
+ def set_item
+   @item = Item.find(params[:id])
+ end
+
 
  def item_params
   params.require(:item).permit(:item_name, :text, :category_id, :sales_status_id, :shipping_fee_id, :prefecture_id, :date_of_shipment_id, :price, :image)
