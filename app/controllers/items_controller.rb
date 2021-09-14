@@ -1,7 +1,10 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-  
+  before_action :judge_login, only: [:edit, :update, :destroy ]
+  before_action :judge_soldout, only: [:edit, :update, :destroy ]
+
+
   def index 
    @item = Item.order("created_at DESC")
   end
@@ -58,6 +61,25 @@ private
   params.require(:item).permit(:item_name, :text, :category_id, :sales_status_id, :shipping_fee_id, :prefecture_id, :date_of_shipment_id, :price, :image)
   .merge(user_id: current_user.id)
  end
+
+ def set_item
+  @item = Item.find(params[:id])
+end
+ 
+def judge_login
+  if current_user != @item.user
+    redirect_to root_path
+  end
+end
+
+def judge_soldout
+  if @item.order != nil
+    redirect_to root_path
+  end 
+end
+
+
+
 end 
  
 
