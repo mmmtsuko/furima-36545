@@ -1,12 +1,11 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :item_data,only: [:show,:update,:edit,:destroy]
   before_action :move_to_index, only: [:edit,:destroy,:update]
-  before_action :redirect_to_index, only: [:edit,:update]
+  before_action :get_item, only: [:show, :edit, :update, :destroy]
   
 
   def index 
-   @item = Item.order("created_at DESC")
+   @item = Item.all.order("created_at DESC")
   end
 
  def new
@@ -52,7 +51,7 @@ private
   .merge(user_id: current_user.id)
  end
 
- def item_data
+ def get_item
   @item = Item.find(params[:id])
 end
 
@@ -62,11 +61,7 @@ def move_to_index
   end
 end
 
-def redirect_to_index
-  if current_user.id == @item.user_id && @item.item_log != nil
-    redirect_to action: :index
-  end
-end
+
 
 
 
