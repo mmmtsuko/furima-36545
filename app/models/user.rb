@@ -19,5 +19,25 @@ class User < ApplicationRecord
    validates :birthbay
    validates :nickname
   end
+
+
+ 
+
+  #|postal_code 郵便番号    
+ #|prefecture_id  都道府県   
+ #|city_name  市町村   
+ #|house_number_id 番地 
+ #|building_name 建物  
+ #|phone_number  電話番号  
+           
+ 
+
+
+
+
+
+
+
+
 end
 
