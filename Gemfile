@@ -70,3 +70,4 @@ gem 'activestorage-validator'
 
 gem 'pry-rails'
 
+gem 'payjp'
