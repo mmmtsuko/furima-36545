@@ -11,6 +11,7 @@ class OrdersController < ApplicationController
 
  def create
        @order_private = OrderPrivate.new(order_params)
+       #binding.pry
        if @order_private.valid?
          pay_item
         @order_private.save
@@ -18,10 +19,8 @@ class OrdersController < ApplicationController
       else
         render :index
       end
-    end
+ end
        
- 
-
 private
 
 def pay_item
