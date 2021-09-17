@@ -41,7 +41,7 @@ Association
  
  
  
-##privatesテーブル
+##orderテーブル
 |Column           |Type         | Options                     |
 |-----------------|-------------|-----------------------------|
 |postal_code      |string       |null:false                   |
@@ -57,7 +57,7 @@ Association
  .belongs_to order
 
 
-##ordersテーブル
+##privateテーブル
 
 |Column           |Type        | Options                      |
 |-----------------|------------|------------------------------|
