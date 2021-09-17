@@ -59,13 +59,13 @@ private
 end
 
 def move_to_index
-  unless current_user.id == @item.user_id
+  redirect_to root_path if current_user.id != Item.find(params[:id]).user_id #もしくは　商品が売却済みだったら
     redirect_to action: :index
+
 
   end
 end
  
-end
  
 
 

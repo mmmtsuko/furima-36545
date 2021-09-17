@@ -13,7 +13,7 @@ class OrdersController < ApplicationController
  end
 
   def create
- @order_private = OrderPrivate.new(order_params)
+  @order_private = OrderPrivate.new(order_params)
   if @order_private.valid?
     pay_item
     @order_private.save
