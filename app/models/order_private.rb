@@ -8,7 +8,6 @@
   validates :prefecture_id
   validates :city_name
   validates :house_number_id
-  validates :building_name
   validates :user_id
   validates :item_id
   validates :token
