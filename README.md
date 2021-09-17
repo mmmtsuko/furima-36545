@@ -37,11 +37,11 @@ Association
 
 Association
  .belongs_to  user
- .has_one_to  order
+ .has_one    order
  
  
  
-##privatesテーブル
+##ordersテーブル
 |Column           |Type         | Options                     |
 |-----------------|-------------|-----------------------------|
 |postal_code      |string       |null:false                   |
@@ -57,7 +57,7 @@ Association
  .belongs_to order
 
 
-##ordersテーブル
+##privatesテーブル
 
 |Column           |Type        | Options                      |
 |-----------------|------------|------------------------------|

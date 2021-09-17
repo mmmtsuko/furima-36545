@@ -19,5 +19,17 @@ class User < ApplicationRecord
    validates :birthbay
    validates :nickname
   end
+
+
+ 
+
+  
+
+
+
+
+
+
+
 end
 

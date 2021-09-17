@@ -8,6 +8,7 @@ class Item < ApplicationRecord
   belongs_to :date_of_shipment
   belongs_to :user
   has_one_attached :image
+  has_one :private
 
   with_options presence: true do
     validates :item_name, length: { maximum: 40 }
@@ -23,5 +24,7 @@ class Item < ApplicationRecord
     validates :prefecture_id
     validates :date_of_shipment_id
   end
+
+
 
 end
