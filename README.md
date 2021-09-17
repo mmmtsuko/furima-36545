@@ -37,7 +37,7 @@ Association
 
 Association
  .belongs_to  user
- .has_one_to  order
+ .has_one    order
  
  
  
