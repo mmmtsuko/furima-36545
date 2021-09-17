@@ -97,6 +97,13 @@ RSpec.describe User, type: :model do
         expect(@order_private.errors.full_messages).to include("Phone number 10桁or11桁の半角数字で入力してください。")
         end
 
+        it '電話番号でが12桁以下では購入できない' do
+          @order_private.phone_number = '1234567'
+        @order_private.valid?
+        expect(@order_private.errors.full_messages).to include("Phone number 10桁or11桁の半角数字で入力してください。")
+        end
+
+
         it 'userが紐付いていないと保存できない' do
           @order_private.user_id = nil
           @order_private.valid?
