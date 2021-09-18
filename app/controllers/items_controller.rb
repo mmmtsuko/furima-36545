@@ -28,9 +28,10 @@ end
 
 
  def edit
-    if @item.private.present?
-      redirect_to root_path 
-    end
+  return redirect_to root_path if @item.order.present?
+    #if @item.private.present?
+     # redirect_to root_path 
+    #end
  end
 
  def update
