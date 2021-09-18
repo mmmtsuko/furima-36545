@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :update, :destroy]
-  before_action :get_item, only: [:show, :edit, :update, :destroy]
+  before_action :get_item, only: [:show, :update, :destroy, :edit]
   before_action :move_to_index, only: [:edit,:destroy,:update]
 
   def index 
@@ -11,44 +11,43 @@ class ItemsController < ApplicationController
    @item = Item.new
  end
 
+
  def create
-  @item = Item.new (item_params)
- if @item.save
-   redirect_to root_path
-  else
-   render :new
+    @item = Item.new (item_params)
+   if @item.save
+     redirect_to root_path
+    else
+     render :new
+   end
  end
-end
-
-
 
  def show
   @item = Item.find(params[:id])
  end
 
-
  def edit
-  return redirect_to root_path if @item.order.present?
-    #if @item.private.present?
-     # redirect_to root_path 
-    #end
- end
-
- def update
-   if @item.update(item_params)
-     redirect_to item_path(@item.id)
-   else
-     render :edit
+   if @item_private.present?
+      redirect_to root_path
    end
  end
 
- def destroy 
-  if user_signed_in? && current_user.id == @item.user_id
-    @item.destroy
-    redirect_to root_path
+ def update
+    if @item.update(item_params)
+     redirect_to item_path(@item.id)
+   else
+    render :edit
   end
- end
+end
  
+
+ def destroy 
+   if user_signed_in? && current_user.id == @item.user_id
+     @item.destroy
+   else
+     redirect_to root_path
+   end
+ end
+
 private
 
  
@@ -59,15 +58,11 @@ private
 
  def get_item
   @item = Item.find(params[:id])
- end
+end
 
  def move_to_index
-  redirect_to root_path if current_user.id != Item.find(params[:id]).user_id  
+   redirect_to root_path if current_user.id != Item.find(params[:id]).user_id 
  end
+
+ 
 end
- 
- 
-
- 
-
-
