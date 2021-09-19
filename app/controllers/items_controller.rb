@@ -61,7 +61,8 @@ private
 end
 
  def move_to_index
-   redirect_to root_path if current_user.id != Item.find(params[:id]).user_id 
+  redirect_to root_path if current_user.id != Item.find(params[:id]).user_id 
+  redirect_to action: :index
  end
 
  
