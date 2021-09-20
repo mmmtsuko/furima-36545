@@ -3,13 +3,14 @@ class OrdersController < ApplicationController
   before_action :set_item, only: [:index, :create]
 
   def index
-    if current_user == @item.user || @item_private.present? 
     @order_private= OrderPrivate.new
-   @item = Item.find(params[:item_id])
-  else
-    redirect_to root_path
-  end
-
+    redirect_to root_path if @item.private.present? || current_user == @item.user
+  #＃if user_signed_in? && current_user.id != @item.user_id && @item_private == nil
+   # if current_user == @item.user || @item_private.present? 
+  #else
+    #redirect_to root_path
+ # end
+  #redirect_to root_path if 商品が売れちゃっていたら ||　商品出品者とログインユーザーが同じなら
  end
 
   def create
