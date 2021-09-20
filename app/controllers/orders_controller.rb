@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   before_action :set_item, only: [:index, :create]
 
   def index
-    if user_signed_in? && current_user.id != @item.user_id && @item_private == nil
+    if current_user == @item.user || @item_private.present? 
     @order_private= OrderPrivate.new
    @item = Item.find(params[:item_id])
   else

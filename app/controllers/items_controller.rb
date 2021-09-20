@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show, :update]
   before_action :get_item, only: [:show, :update, :destroy, :edit]
-  before_action :move_to_index, only: [:destroy,:update]
+  before_action :move_to_index, only: [:update, :edit]
 
   def index 
    @item = Item.all.order("created_at DESC")
@@ -19,16 +19,16 @@ class ItemsController < ApplicationController
     else
      render :new
    end
- end
+  end
 
  def show
   @item = Item.find(params[:id])
  end
 
  def edit
-   if @item_private.present? 
-      redirect_to root_path
-   end
+     if @item_private.present? 
+        redirect_to root_path
+     end
  end
 
  def update
@@ -41,11 +41,10 @@ end
  
 
  def destroy 
-   if user_signed_in? && current_user.id == @item.user_id
+    if user_signed_in? && current_user.id == @item.user_id
      @item.destroy
-   else
      redirect_to root_path
-   end
+    end
  end
 
 private
@@ -61,9 +60,8 @@ private
 end
 
  def move_to_index
-  redirect_to root_path if current_user.id != Item.find(params[:id]).user_id 
-  redirect_to action: :index
+  redirect_to root_path if current_user.id != @item
  end
 
- 
+ #売却されている商品かどうか、、の記述@item_private.present? 論理演算子
 end
