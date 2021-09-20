@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :update, :destroy]
   before_action :get_item, only: [:show, :update, :destroy, :edit]
-  before_action :move_to_index, only: [:edit,:destroy,:update]
+  before_action :move_to_index, only: [:destroy,:update]
 
   def index 
    @item = Item.all.order("created_at DESC")
@@ -26,7 +26,7 @@ class ItemsController < ApplicationController
  end
 
  def edit
-   if @item_private.present?
+   if @item_private.present? 
       redirect_to root_path
    end
  end
