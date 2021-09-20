@@ -35,8 +35,8 @@ class ItemsController < ApplicationController
     if @item.update(item_params)
      redirect_to item_path(@item.id)
    else
-    render :edit
-  end
+     render :edit
+   end
 end
  
 
@@ -57,11 +57,11 @@ private
 
  def get_item
   @item = Item.find(params[:id])
-end
-
- def move_to_index
-  redirect_to root_path if current_user.id != @item
  end
 
- #売却されている商品かどうか、、の記述@item_private.present? 論理演算子
+ def move_to_index
+  if (@item.user_id != current_user.id) || @item.private.present? 
+     redirect_to root_path
+  end
+ end
 end
